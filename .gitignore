@@ -1,0 +1,65 @@
+# Secrets / config local
+.env
+wp-config.php
+
+# Backup pesado — va a disco externo, NO a GitHub
+backup/
+*.sql.gz
+*.tar.gz
+
+# WordPress core — lo provee la imagen docker wordpress:latest
+# Solo archivos del ROOT (con / delante), no toca wp-content/themes ni plugins
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-config-sample.php
+/wp-cron.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/wp-*.php
+
+# WordPress runtime
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup*/
+wp-content/aiowps_backups/
+wp-content/debug.log
+wp-content/*.sql
+
+# Plugins de terceros — se reinstalan, NO se versionan (191MB)
+# Solo se versionan los propios cuerpolibre-*
+wp-content/plugins/*
+!wp-content/plugins/cuerpolibre-setup/
+!wp-content/plugins/cuerpolibre-masonry-gallery/
+
+# Themes — solo el propio
+wp-content/themes/*
+!wp-content/themes/cuerpolibre/
+
+# Logs y temporales
+*.log
+.git.old-2026-10-16/
+test.php
+.kogniterm/
+.kilocode/
+.gemini_interpreter_history
+wp-cli.phar
+
+# Se versiona a propósito: docker-compose.yml, .env.example,
+# .htaccess, php.ini, scripts/, docs/, README_RECREAR.md
+!.htaccess
+!php.ini
+!docker-compose.yml
+!.env.example
